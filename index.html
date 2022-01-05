@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Recipe website</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    
+    
+       <h1 id="logo"> Recipe Search</h1> 
+    
+   
+  
+    <div class ="intro">
+      <div class="intro-text">
+        <h1 class="hide">
+          <span class="text">Make</span>
+        </h1>
+        <h1 class="hide">
+          <span class="text"> Cooking</span>
+        </h1>
+        <h1 class="hide">
+          <span class="text"> Fun</span>
+        </h1>
+      </div>
+    </div>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"
+   integrity="sha512-eP6ippJojIKXKO8EPLtsUMS+/sAGHGo1UN/38swqZa1ypfcD4I0V/ac5G3VzaHfDaklFmQLEs51lhkkVaqg60Q=="
+    crossorigin="anonymous"
+     referrerpolicy="no-referrer"
+     ></script>
+     <script src="./app.js"></script>
+
+
+   <div class ="FullPage">
+  <div class="center ">
+  <div class="down">
+
+   <h1 class="big-text">  Search! </h1>
+
+  
+<input class ="inputbar" type="text" id="searchText" placeholder="ex chicken">
+
+   <button class="button button1"onclick="Search()"> Search!</button>
+  
+</div>
+</div>
+   <img id="img" src="">
+   
+    <div id="info">
+
+    <script>
+      var api_url = "";
+      var offset = 0;
+    function Search(){
+ api_url = ' https://api.spoonacular.com/recipes/complexSearch?query='+document.getElementById("searchText").value+'&offset='+offset+'&apiKey=a320ee7093f94a01947f46c6cc703418';
+getISS();
+offset = offset+10;
+
+    }
+
+     function back(){
+       offset=offset-20;
+       Search();
+     }
+   async function getInstructions(id){
+     console.log(id);
+     api_url = 'https://api.spoonacular.com/recipes/' + id +'/analyzedInstructions?apiKey=a320ee7093f94a01947f46c6cc703418';
+     console.log (api_url);
+     var response = await fetch(api_url);
+      var data = await response.json();
+    var steps = data;
+    var output = "";
+    for(var i = 0; i < steps[0].steps.length; i++){
+      output += steps[0].steps[i].step + "<br>";
+    }
+
+    //get all the ingredients
+
+     
+     api_url = 'https://api.spoonacular.com/recipes/' + id +'/information?apiKey=a320ee7093f94a01947f46c6cc703418';
+     console.log (api_url);
+      response = await fetch(api_url);
+       data = await response.json();
+    var extendedIngredients = data.extendedIngredients;
+    console.log(extendedIngredients);
+    var ready = data.readyInMinutes;
+    var servings = data.servings;
+     var ingredients = "";
+     for(var a = 0; a < extendedIngredients.length; a++){
+     ingredients += extendedIngredients[a].original + "<br>";
+
+     }
+
+    
+    document.getElementById("info").innerHTML = ready + " Minutes " + servings + " servings <br><br>"+ "Ingredients <br><br>" + ingredients + "<br>Instructions <br><br>" +output + '<button class="button button1"onclick="back()"> back! </button>';
+
+    
+   }
+
+    async function getISS() {
+      const response = await fetch(api_url);
+      const data = await response.json();
+      var {results, title, id} = data;
+      console.log(results.length);
+      console.log(results[0].title);
+      document.getElementById("info").innerHTML="";
+      
+   
+      var output = '<table>';
+      for(var i=0; i<10; i++){
+output += '<tr><td>';
+output += '<img src ="' + results[i].image + '"></td>';
+output += '<td><a href="#" onclick = "getInstructions(' + results[i].id + ')"> '+ results[i].title +'</a></td></tr>';
+
+      }
+      output += '</table><button class="button button1"onclick="back()"> back! </button><button class="button button1"onclick="Search()"> More! </button>';
+      document.getElementById("info").innerHTML = output;
+     
+       
+     console.log(title);
+     console.log(id);
+ 
+     }
+    
+    
+    </script>
+    </div>
+    </div>
+    <div class="slider"></div>
+  
+  </body>
+
+</html>
+

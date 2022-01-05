@@ -1,0 +1,176 @@
+
+
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+body{
+background-color : rgb(8, 67, 61);
+}
+
+
+
+ .FullPage{
+height:100vh;
+width:100%;
+background-image: url(bg4.jpg);
+background-position: center;
+background-size: cover;
+padding-left: 5%;
+padding-right: 5%;
+box-sizing: border-box;
+
+
+ }
+ .down{ padding-top: 20%;
+
+ }
+.inputbar {
+  
+  background-color: rgb(19, 66, 62);
+ width: 50%;
+ padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-decoration-color: black;
+   font-size: 16px;
+   color: white;
+}
+
+
+
+	.center {
+		text-align: center;
+	}
+  .button {
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+ 
+}
+
+.button1 {
+  background-color: white;
+  color: black;
+  border: 2px solid rgb(158, 60, 25);
+}
+
+.button1:hover {
+  background-color:rgb(158, 60, 25);
+  color: white;
+}
+
+#info{
+  padding-top: 30%;
+  font-size: 40px;
+  color: black;
+  text-align: center;
+}
+
+.font{
+  font-size: 70px;
+  color: black;
+  text-decoration:overline  dotted ; 
+  
+}
+a:visited {
+  color: rgb(158, 60, 25);
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: pink;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:link {
+  color:  rgb(158, 60, 25);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.slider{
+  background: rgb(19, 66, 62);
+  position: fixed;
+  top: 0;
+  left:0;
+  width: 100%;
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(100%);
+}
+
+.intro{
+  background: rgb(19, 66, 62);
+  position: fixed;
+  top: 0;
+  left:0;
+  width: 100%;
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-text{
+  color: rgba(191, 206, 197, 1);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 3rem;
+}
+
+.hide{
+  background: rgb(19, 66, 62);
+  overflow: hidden;
+}
+
+.hide span{
+  transform: translateY(100%);
+  display: inline-block;
+}
+
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 10vh;
+  color: rgba(191, 206, 197, 1);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li{
+  padding-left:  5rem;
+  padding-right: 5rem;
+  font-size:1.2rem;
+
+}
+
+#logo{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  color: rgba(191, 206, 197, 1);
+}
+
+.big-text{
+
+  font-size: 40px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgba(191, 206, 197, 1);
+}
